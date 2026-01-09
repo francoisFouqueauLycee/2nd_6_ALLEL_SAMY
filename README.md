@@ -1,16 +1,323 @@
 # 2nde-06-ALLEL-SAMY
-Page web sur l'Australie
-<h1> L'Australie </h1>
-<p><h3> Présentation </p></h3>
-<p>L’Australie est une terre de contraste située à l’autre bout du monde, regorgeant de <i>trésors</i>. Entre la beauté sauvage de ses milliers de paysages, sa faune et sa flore uniques au monde, ses richesses naturelles et culturelles exceptionnelles, l’Australie est une destination <b>exceptionnelle</b> à visiter au moins une fois dans sa vie.</p>
-<img src="Drapeau.jpg"height="263">
-<p><h3> Géographie de l'Australie </p></h3>
-<p>À plus de 20h de vol de la France, l’Australie, île-continent grande comme 14 fois la France, est vaste, s’étendant sur <b>7,7 millions de km2</b>, pour plus de <i>23 millions d’habitants</i>, correspondant à une densité de 3 habitants… par km2. Ceci s’explique majoritairement par le fait que le pays est composé à 80% de déserts arides. Les grandes villes se situent généralement sur le littoral.
-L’Australie ne détient aucune frontière terrestre avec d’autres pays, néanmoins, ses pays voisins sont l’Indonésie, la Papouasie-Nouvelle-Guinée, la Nouvelle-Calédonie et la Nouvelle-Zélande.
-Le pays se divise en 7 états et territoires : Queensland (QLD), New South Wales (NSW), Victoria (VIC), ACT (Australian Capital Territory), Tasmania (TAS), South Australia (SA), Western Australia (WA) et Northern Territories (NT).</p>
-<img src="carte.jpg"height="263">
-<p><h3> Les Australiens </p></h3>
-<p>Nous ne pouvons pas présenter l’Australie sans parler de son <b>fabuleux style de vie</b>. Ici, les habitants cultivent l’Australian <i>Way of Life</i>, un style de vie bien particulier. Les Australiens sont en effet réputés pour être très amicaux et « sans prise de tête » notamment de part leur célèbre « no worries » (se traduisant par « pas de problème »).
-Les Australiens sont également connus pour être de vrais sportifs. Dans le pays, il est courant de pratiquer sont footing le matin avant d’aller travailler, ou encore de surfer avant d’aller dîner..</p>
-<img src="Australiens.jpg"height=263">
-<a href="https://www.australia-roads.fr/presentation-de-laustralie/">Visiter pour plus d'information</a>
+Exemple site web
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Lycée Gaston Bachelard (Chelles, 77) -- Page SNT</title>
+  <meta name="description" content="Page web SNT (Seconde) : mini-site sur le lycée Gaston Bachelard de Chelles." />
+
+  <!-- =========================
+       CSS intégré (un seul fichier)
+       ========================= -->
+  <style>
+    :root{
+      --bg: #0b1020;
+      --card: rgba(255,255,255,0.06);
+      --bd: rgba(255,255,255,0.10);
+      --fg: #e5e7eb;
+      --muted: rgba(229,231,235,0.78);
+      --accent: #93c5fd;
+    }
+
+    *{ box-sizing:border-box; }
+
+    html,body{
+      height:100%;
+      margin:0;
+      font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background: radial-gradient(1200px 600px at 20% 0%, rgba(147,197,253,0.18), transparent 60%),
+                  radial-gradient(900px 500px at 80% 10%, rgba(167,139,250,0.14), transparent 60%),
+                  var(--bg);
+      color: var(--fg);
+    }
+
+    .wrap{
+      width: min(980px, calc(100% - 28px));
+      margin: 0 auto;
+    }
+
+    .top{
+      border-bottom: 1px solid var(--bd);
+      padding: 26px 0 18px;
+    }
+
+    .kicker{
+      margin:0 0 6px;
+      color: var(--muted);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      font-size: 12px;
+    }
+
+    h1{
+      margin:0;
+      font-size: clamp(24px, 3vw, 34px);
+      line-height: 1.15;
+    }
+
+    .lead{
+      margin: 10px 0 14px;
+      color: var(--muted);
+      max-width: 72ch;
+    }
+
+    .muted{ color: var(--muted); }
+
+    .nav{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .nav a{
+      color: var(--fg);
+      text-decoration: none;
+      border: 1px solid var(--bd);
+      background: rgba(255,255,255,0.03);
+      padding: 8px 10px;
+      border-radius: 12px;
+      font-size: 14px;
+    }
+
+    .nav a:hover{
+      border-color: rgba(147,197,253,0.55);
+    }
+
+    main{
+      padding: 18px 0 26px;
+    }
+
+    .card{
+      background: var(--card);
+      border: 1px solid var(--bd);
+      border-radius: 16px;
+      padding: 16px 16px;
+      margin: 14px 0;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.25);
+    }
+
+    h2{
+      margin: 0 0 10px;
+      font-size: 20px;
+    }
+
+    h3{
+      margin: 12px 0 6px;
+      font-size: 16px;
+      color: var(--accent);
+    }
+
+    p{ line-height: 1.55; }
+
+    .note{
+      color: var(--muted);
+      border-left: 3px solid rgba(147,197,253,0.55);
+      padding-left: 10px;
+    }
+
+    .grid2{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    @media (min-width: 820px){
+      .grid2{ grid-template-columns: 1fr 1fr; }
+    }
+
+    table{
+      width:100%;
+      border-collapse: collapse;
+      overflow:hidden;
+      border-radius: 12px;
+    }
+
+    th,td{
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 10px 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th{
+      background: rgba(255,255,255,0.06);
+    }
+
+    a{ color: var(--accent); }
+
+    .callout{
+      margin-top: 14px;
+      padding: 12px 12px;
+      border-radius: 14px;
+      border: 1px dashed rgba(147,197,253,0.45);
+      background: rgba(147,197,253,0.06);
+    }
+
+    .small{ font-size: 13px; }
+
+    .footer{
+      margin-top: 10px;
+      text-align: center;
+      opacity: 0.9;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="top">
+    <div class="wrap">
+      <p class="kicker">SNT -- Seconde</p>
+      <h1>Lycée Gaston Bachelard <span class="muted">• Chelles (77)</span></h1>
+      <p class="lead">
+        Tu vas publier cette page sur Internet avec GitHub Pages.
+        Ta mission : personnaliser le contenu puis fournir l'URL de ton site.
+      </p>
+
+      <nav class="nav">
+        <a href="#mission">Ta mission</a>
+        <a href="#presentation">Présentation</a>
+        <a href="#vie">Vie au lycée</a>
+        <a href="#infos">Infos pratiques</a>
+        <a href="#auteur">Auteur</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section id="mission" class="card">
+      <h2>Ta mission</h2>
+      <ul>
+        <li>Créer un dépôt GitHub et y ajouter un fichier <strong>index.html</strong>.</li>
+        <li>Activer <strong>GitHub Pages</strong> pour publier ta page en ligne.</li>
+        <li>Personnaliser le contenu (texte, lien externe, tableau, crédits).</li>
+        <li>Donner au professeur : <strong>l'URL</strong> de ta page et le <strong>nom du dépôt</strong>.</li>
+      </ul>
+
+      <p class="note">
+        Important : cette page n'est pas un site officiel. C'est un exercice de publication web.
+      </p>
+    </section>
+
+    <section id="presentation" class="card">
+      <h2>Présentation</h2>
+      <p>
+        Le lycée Gaston Bachelard se situe à Chelles, en Seine-et-Marne (77).
+        Cette page sert d'exemple pour apprendre à publier un site statique sur Internet.
+      </p>
+
+      <div class="grid2">
+        <div>
+          <h3>Ce que tu manipules</h3>
+          <ul>
+            <li>Un fichier HTML (structure de la page)</li>
+            <li>Du CSS (mise en forme)</li>
+            <li>Un dépôt GitHub (stockage + historique)</li>
+            <li>GitHub Pages (publication)</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>À écrire par toi</h3>
+          <p class="note">
+            Remplace ce texte par 4 à 6 lignes personnelles :
+            qui tu es (sans données privées), ce que tu trouves intéressant dans le numérique, etc.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="vie" class="card">
+      <h2>Vie au lycée</h2>
+      <p>
+        Modifie la liste ci-dessous : ajoute des éléments précis et enlève ceux qui sont trop vagues.
+      </p>
+
+      <ol>
+        <li>Espaces : CDI, salles informatiques, salles spécialisées...</li>
+        <li>Projets / clubs : à compléter (club, atelier, association, etc.).</li>
+        <li>Événements : sorties, portes ouvertes, forum, actions...</li>
+      </ol>
+    </section>
+
+    <section id="infos" class="card">
+      <h2>Infos pratiques</h2>
+      <p>
+        Complète ce tableau. Tu peux écrire "à confirmer" si tu n'as pas l'info exacte,
+        mais tu dois améliorer au moins 2 lignes.
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Information</th>
+            <th>Donnée</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Commune</td>
+            <td>Chelles</td>
+          </tr>
+          <tr>
+            <td>Département</td>
+            <td>Seine-et-Marne (77)</td>
+          </tr>
+          <tr>
+            <td>Accès (transport)</td>
+            <td>À compléter</td>
+          </tr>
+          <tr>
+            <td>Site officiel</td>
+            <td>
+              <!-- À MODIFIER : remplace le # par une vraie adresse -->
+              <a href="#" target="_blank" rel="noopener">À ajouter (lien fiable)</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="auteur" class="card">
+      <h2>Auteur</h2>
+      <p>
+        <strong>Nom :</strong> [Prénom NOM] <br />
+        <strong>Classe :</strong> [2nde X] <br />
+        <strong>Date :</strong> [JJ/MM/AAAA]
+      </p>
+
+      <p class="note">
+        Écris ici une phrase : "GitHub Pages sert à ..." (avec tes mots).
+      </p>
+    </section>
+
+    <section id="sources" class="card">
+      <h2>Sources / Crédits</h2>
+      <ul>
+        <li>Texte : rédigé par moi (TP SNT).</li>
+        <li>Liens : j'ajoute ici les sites consultés (si j'en utilise).</li>
+        <li>Images (si j'en ajoute) : auteur + licence.</li>
+      </ul>
+      <p class="small muted">
+        Conseil : si tu ajoutes une image, utilise une image personnelle ou une image libre de droits,
+        et indique sa source.
+      </p>
+    </section>
+
+    <footer class="footer">
+      <p class="small">
+        TP WEB 04 - déployer son site • GitHub Pages
+      </p>
+    </footer>
+  </main>
+</body>
+</html>
+
+
+
+
+
+
